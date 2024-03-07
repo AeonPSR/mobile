@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Catego from './pages/Catego';
+import Detail from './pages/Details';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -39,6 +40,9 @@ const App: React.FC = () => (
         </Route>
 		<Route exact path="/catego/:id">
           <Catego />
+        </Route>
+		<Route exact path="/details/:id">
+          <Detail />
         </Route>
 		<Route exact path="/register">
           <Register />

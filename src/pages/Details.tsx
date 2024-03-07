@@ -4,18 +4,17 @@ import { useParams } from 'react-router';
 import { useState } from 'react';
 import { Categorie, getCategorieById } from '../data/Categorie';
 import { Article, getArticleByCategory } from '../data/Article';
-import { Link } from 'react-router-dom';
+import { Detail, getDetailById } from '../data/Detail';
 
-const Catego: React.FC = () => {
+const Details: React.FC = () => {
 	const { id } = useParams<{ id: string; }>();
-//	const[categories, setCategories] = useState(getCategorieById(parseInt(id)));
-	const[articles, setArticles] = useState(getArticleByCategory(parseInt(id)));
+	const[details, setDetails] = useState(getDetailById(parseInt(id)));
 
 	  return (
 		<IonPage>
 			<IonHeader>
 				<IonToolbar>
-					Category page
+					Details page
 				</IonToolbar>
 			</IonHeader>
 			<IonContent fullscreen>
@@ -27,16 +26,7 @@ const Catego: React.FC = () => {
 			<IonButton routerLink="/home">Home</IonButton>
 			<IonGrid>
 					<IonCol>
-						{articles.map((article) => {
-						return <> 
-						<Link to={"/details/"+article.idArt}>
-							<IonRow>{article.nom}</IonRow> 
-							<IonRow>{article.desc}</IonRow> 
-							<IonRow>{article.prix}</IonRow> 
-						</Link>
-						<br />
-						</>
-						})}
+						<IonRow>{details.description}</IonRow> 
 					</IonCol>
 				</IonGrid>
 		  </IonContent>
@@ -44,5 +34,5 @@ const Catego: React.FC = () => {
 	  );
 	};
 	
-	export default Catego;
+	export default Details;
 	
